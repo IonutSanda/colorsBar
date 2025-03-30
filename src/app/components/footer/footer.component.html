@@ -1,0 +1,50 @@
+<footer class="footer">
+  <div class="containter">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/img/footer-logo.png" alt="Colors" />
+      </div>
+      <div class="footer-links">
+        <h3>Quick links</h3>
+        <ul>
+          <li><a [routerLink]="['/']">Home</a></li>
+          <li>
+            <a href="#services" (click)="scrollToSection($event, 'services')"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="#gallery" (click)="scrollToSection($event, 'gallery')"
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a href="#contact" (click)="scrollToSection($event, 'contact')"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a href="#about" (click)="scrollToSection($event, 'about')"
+              >About</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="divider">
+      <hr />
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {{ currentYear }} Colors services. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

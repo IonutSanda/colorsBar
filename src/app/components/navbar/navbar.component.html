@@ -1,0 +1,43 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <a [routerLink]="['/']">
+        <img src="assets/img/logo.png" alt="Colors" />
+      </a>
+    </div>
+
+    <div class="menu-toggle" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" [class.active]="isMenuOpen">
+      <li>
+        <a
+          [routerLink]="['/']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="scrollToSection($event, '/')"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a href="#services" (click)="scrollToSection($event, 'services')"
+          >Services</a
+        >
+      </li>
+      <li>
+        <a href="#gallery" (click)="scrollToSection($event, 'gallery')"
+          >Gallery</a
+        >
+      </li>
+      <li>
+        <a href="#contact" (click)="scrollToSection($event, 'contact')"
+          >Contact</a
+        >
+      </li>
+      <li><a [routerLink]="['/about']" routerLinkActive="active">About</a></li>
+    </ul>
+  </div>
+</nav>

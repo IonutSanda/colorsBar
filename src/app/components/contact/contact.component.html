@@ -1,0 +1,100 @@
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Get in touch</h3>
+        <p>
+          Have questions about our services or want to book an event? Reach out
+          to us!
+        </p>
+
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{ contactInfo.address }}</span>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <span>{{ contactInfo.phoneNr }}</span>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <span>{{ contactInfo.email }}</span>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              [ngClass]="{
+                'is-invalid': submitted && nameFormControl.errors
+              }"
+            />
+            <small class="p-error p-error-placeholder">
+              @if (nameFormControl.invalid && (nameFormControl.dirty ||
+              nameFormControl.touched)) { @if
+              (nameFormControl.hasError("required")) { Name is a required field
+              } @else if (nameFormControl.hasError("maxlength")) { Name is too
+              short (minimum
+              {{ nameFormControl.getError("maxlength").requiredLength }}
+              characters allowed) } @else if
+              (nameFormControl.hasError("whitespace")) { Name cannot contain
+              only spaces } }
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              [ngClass]="{
+                'is-invalid': submitted && emailFormControl.errors
+              }"
+            />
+            <small class="p-error p-error-placeholder">
+              @if (emailFormControl.invalid && (emailFormControl.dirty ||
+              emailFormControl.touched)) { @if
+              (emailFormControl.hasError("required")) { Email is a required
+              field } }
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              rows="5"
+              [ngClass]="{
+                'is-invalid': submitted && messageFormControl.errors
+              }"
+            ></textarea>
+            <small class="p-error p-error-placeholder">
+              @if (messageFormControl.invalid && (messageFormControl.dirty ||
+              messageFormControl.touched)) { @if
+              (messageFormControl.hasError("required")) { Message is a required
+              field } @else if (messageFormControl.hasError("maxlength")) { Name
+              is too short (minimum
+              {{ messageFormControl.getError("maxlength").requiredLength }}
+              characters allowed) } @else if
+              (messageFormControl.hasError("whitespace")) { Name cannot contain
+              only spaces } }
+            </small>
+          </div>
+
+          <button type="submit" class="submit-btn">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
