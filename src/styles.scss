@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --font-family: FS Albert, Helvetica, sans-serif;
+    --cocktail-bar: #e32d12;
+    --ice-delivery: #3d7577;
+    --logistics: #bebec0;
+    --juice-bar: #f69e09;
+    --coffee-bar: #77411D;
+}
+
+html{
+    font-size: 1.025rem;
+    height: 100%;
+}
+
+body {
+	font-family: var(--font-family);
+    padding: 0;
+	margin: 0;
+	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
+}

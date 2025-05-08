@@ -1,3 +1,5 @@
+@import "../../../styles/base";
+
 .footer {
   background-color: #9f9f9f;
   color: white;
@@ -36,7 +38,7 @@
   position: absolute;
   width: 40px;
   height: 2px;
-  background-color: #ff6b6b;
+  background-color: $primary-color;
   bottom: -10px;
   left: 0;
 }
@@ -57,7 +59,7 @@
 }
 
 .footer-links a:hover {
-  color: #ff6b6b;
+  color: $primary-color;
 }
 
 .social-icons {

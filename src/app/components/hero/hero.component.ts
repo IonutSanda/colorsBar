@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NAVBAR_HEIGHT } from '../../application.constants';
 
 @Component({
   selector: 'app-hero',
@@ -24,7 +25,7 @@ export class HeroComponent implements OnInit {
 
     if (servicesSection) {
       window.scrollTo({
-        top: servicesSection.offsetTop - 80, // 80 is the height of the navbar
+        top: servicesSection.offsetTop - NAVBAR_HEIGHT,
         behavior: 'smooth',
       });
     }

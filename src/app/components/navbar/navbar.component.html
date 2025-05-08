@@ -37,7 +37,14 @@
           >Contact</a
         >
       </li>
-      <li><a [routerLink]="['/about']" routerLinkActive="active">About</a></li>
+      <li>
+      <a
+        [routerLink]="['/about']"
+        routerLinkActive="active"
+        (click)="isMenuOpen = false"
+        >About</a
+      >
+    </li>
     </ul>
   </div>
 </nav>

@@ -1,3 +1,5 @@
+@import "../../../styles/base";
+
 .services {
   padding: 100px 0;
   background-color: #f9f9f9;
@@ -22,7 +24,7 @@
   position: absolute;
   width: 80px;
   height: 3px;
-  background-color: #ff6b6b;
+  background-color: $primary-color;
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
@@ -81,8 +83,8 @@
 
 .service-btn {
   background-color: transparent;
-  color: #ff6b6b;
-  border: 2px solid #ff6b6b;
+  color: $primary-color;
+  border: 2px solid $primary-color;
   padding: 10px 20px;
   border-radius: 50px;
   font-weight: 500;
@@ -91,7 +93,7 @@
 }
 
 .service-btn:hover {
-  background-color: #ff6b6b;
+  background-color: $primary-color;
   color: white;
 }
 

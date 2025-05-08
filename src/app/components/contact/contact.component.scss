@@ -1,3 +1,9 @@
+@import "../../../styles/base";
+
+* {
+  box-sizing: border-box;
+}
+
 .contact {
   padding: 100px 0;
   background-color: #f9f9f9;
@@ -21,7 +27,7 @@
   position: absolute;
   width: 80px;
   height: 3px;
-  background-color: #ff6b6b;
+  background-color: $primary-color;
   bottom: -15px;
   left: 50%;
   transform: translateX(-50px);
@@ -40,7 +46,7 @@
 
 .contact-info {
   padding: 40px;
-  background-color: #ff6b6b;
+  background-color: $primary-color;
   color: white;
 }
 
@@ -92,8 +98,12 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #ff6b6b;
+  border-color: $primary-color;
   outline: none;
+}
+
+.form-group textarea {
+  resize: none;
 }
 
 .is-invalid {
@@ -107,7 +117,7 @@
 }
 
 .submit-btn {
-  background-color: #ff6b6b;
+  background-color: $primary-color;
   color: white;
   border: none;
   padding: 12px 25px;

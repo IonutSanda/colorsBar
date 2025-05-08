@@ -6,16 +6,19 @@ import {
   RouterLinkActive,
 } from '@angular/router';
 import { filter } from 'rxjs';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
+  providers: [ScrollService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
   private readonly router = inject(Router);
+  private readonly scrollService = inject(ScrollService);
 
   public isMenuOpen = false;
 
@@ -33,23 +36,10 @@ export class NavbarComponent {
     event.preventDefault();
     this.isMenuOpen = false;
 
-    if (sectionId === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    if (this.router.url === '/' || this.router.url === '') {
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          window.scrollTo({
-            top: section.offsetTop - 80, // 80 is the height of the navbar
-            behavior: 'smooth',
-          });
-        }
-      }, 100);
+    if(this.router.url === '/' || this.router.url === ''){
+      this.scrollService.scrollToSection(sectionId);
     } else {
-      this.router.navigate(['/'], { fragment: sectionId });
+      this.scrollService.navigateToSectionOnPage('/', sectionId);
     }
   }
 
