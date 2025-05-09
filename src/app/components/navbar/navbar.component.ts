@@ -1,3 +1,4 @@
+import { ChangeDetectionStrategy, computed, OnChanges, SimpleChange } from '@angular/core';
 import { Component, inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import {
   NavigationEnd,
@@ -14,11 +15,11 @@ import { ThemeService } from '../../services/theme.service';
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink],
-  providers: [ScrollService, ThemeService],
+  providers: [ScrollService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnInit, OnChanges ,OnDestroy {
   private readonly router = inject(Router);
   private readonly scrollService = inject(ScrollService);
   private readonly themeService = inject(ThemeService);
@@ -28,8 +29,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public isMenuOpen = false;
   public activeSection = 'home';
 
-  public currentLogo = '';
-  public currentTheme = this.themeService.currentThemeColor;
+  public currentLogo = computed(() => {
+    console.log(localStorage.getItem('selectedItem'))
+    return this.themeService.currentLogo();
+  });
   
   private scrollListener: any;
   private sections: string[] = ['home', 'services', 'gallery', 'contact'];
@@ -53,7 +56,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
       });
   }
   
-  ngOnInit() {
+  public ngOnChanges(changes: any):void{
+    console.log(changes)
+  }
+
+  public ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       setTimeout(() => this.calculateSectionOffsets(), 500);
       
@@ -67,7 +74,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
   
-  ngOnDestroy() {
+  public ngOnDestroy() {
     if (this.routerSubscription) {
       this.routerSubscription.unsubscribe();
     }
@@ -76,12 +83,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.scrollListener.unsubscribe();
     }
   }
-  
-  get logoSrc(): string {
-    return this.themeService.currentLogo();
-  }
 
-  
   public toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -104,6 +106,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   
   public navigateHome(event: Event): void {
+    console.log('service', this.currentLogo);
     event.preventDefault();
     this.activeSection = 'home';
     this.router.navigate(['']);

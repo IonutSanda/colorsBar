@@ -3,20 +3,17 @@ import { Component, inject } from '@angular/core';
 import { Service } from '../../dtos';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
-import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-services',
   standalone: true,
   imports: [CommonModule],
-  providers: [ThemeService],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',
 })
 export class ServicesComponent {
 
   private readonly themeService = inject(ThemeService);
-  private readonly router = inject(Router)
 
   public services: Service[] = [
     {
@@ -61,6 +58,5 @@ export class ServicesComponent {
     const serviceTitle = service.title.toLocaleLowerCase().replace(/\s+/g, '-') as ServiceTheme;
 
     this.themeService.setTheme(serviceTitle);
-
   }
 }
