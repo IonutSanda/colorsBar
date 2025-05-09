@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Service } from '../../dtos';
+import { title } from 'process';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',
 })
@@ -41,4 +43,10 @@ export class ServicesComponent {
       image: 'assets/img/carrousel/pic_17.jpg',
     },
   ];
+
+  public getServiceColor(title: string): string{
+    const lowerCaseTitle = title.toLocaleLowerCase().replace(/\s+/g, '-');
+  
+    return `service-btn-${lowerCaseTitle}`;
+  }
 }
