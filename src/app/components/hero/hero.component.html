@@ -54,9 +54,9 @@
       <p>Elevate your event with our professional beverage services. From refreshing juice bars to sophisticated cocktails and complete logistics solutions.</p>
       <div class="buttons">
           <a href="#" class="btn btn-primary">Book Now</a>
-          <a href="#" class="btn btn-outline">Contact Us</a>
+          <a href="#contact" class="btn btn-outline" (click)="scrollToSection($event, 'contact')">Contact Us</a>
       </div>
-      <div class="service-dropdown">
+      <div class="service-dropdown" (click)="scrollToSection($event, 'services')">
           <span>Our Services</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -65,6 +65,17 @@
   </div>
   
   <div class="services-section">
+      <div class="service-card logistics">
+        <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0 0,1 18,18.5M19.5,9.5L21.46,12H17V9.5M6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5A1.5,1.5 0 0,1 7.5,17A1.5,1.5 0 0,1 6,18.5M20,8H17V4H3C1.89,4 1,4.89 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8Z" />
+            </svg>
+        </div>
+        <div class="service-content">
+            <h3>Logistics</h3>
+            <p>Professional logistics service for your events</p>
+        </div>
+    </div>
       <div class="service-card coffee-bar">
           <div class="service-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -108,18 +119,6 @@
           <div class="service-content">
               <h3>Ice Delivery</h3>
               <p>Professional ice delivery service for your events</p>
-          </div>
-      </div>
-      
-      <div class="service-card logistics">
-          <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0 0,1 18,18.5M19.5,9.5L21.46,12H17V9.5M6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5A1.5,1.5 0 0,1 7.5,17A1.5,1.5 0 0,1 6,18.5M20,8H17V4H3C1.89,4 1,4.89 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8Z" />
-              </svg>
-          </div>
-          <div class="service-content">
-              <h3>Logistics</h3>
-              <p>Professional logistics service for your events</p>
           </div>
       </div>
   </div>

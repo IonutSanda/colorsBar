@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ScrollService } from '../../services/scroll.service';
+import { Router } from '@angular/router';
 import { NAVBAR_HEIGHT } from '../../application.constants';
 
 @Component({
@@ -9,6 +11,9 @@ import { NAVBAR_HEIGHT } from '../../application.constants';
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent implements OnInit {
+
+  private readonly scrollService = inject(ScrollService);
+
   public title = 'Colors';
   public tagline =
     'Experience premium ice delivery and professional mobile bar services that transform ordinary gatherings into extraordinary celebrations. ';
@@ -20,14 +25,13 @@ export class HeroComponent implements OnInit {
     }, 100);
   }
 
-  public scrollToServices(): void {
-    const servicesSection = document.getElementById('services');
+  public scrollToSection(event: Event,sectionId: string): void {
+    event.preventDefault();
 
-    if (servicesSection) {
-      window.scrollTo({
-        top: servicesSection.offsetTop - NAVBAR_HEIGHT,
-        behavior: 'smooth',
-      });
+    const servicesSection = document.getElementById(sectionId);
+
+    if(servicesSection){
+      this.scrollService.scrollToSection(sectionId, NAVBAR_HEIGHT - 100);
     }
   }
 }
