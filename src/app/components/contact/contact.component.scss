@@ -132,7 +132,7 @@
 }
 
 .submit-btn:hover {
-  background-color: #ff5252;
+  background-color: color-mix(in srgb, $primary-color, #bebebe 20%);
 }
 
 @media (max-width: 768px) {
