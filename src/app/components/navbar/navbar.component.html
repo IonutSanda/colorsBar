@@ -16,35 +16,43 @@
       <li>
         <a
           [routerLink]="['/']"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          (click)="scrollToSection($event, '/')"
+          [class.active]="activeSection === 'home'"
+          (click)="scrollToSection($event, 'home')"
           >Home</a
         >
       </li>
       <li>
-        <a href="#services" (click)="scrollToSection($event, 'services')"
+        <a 
+          href="#services" 
+          [class.active]="activeSection === 'services'"
+          (click)="scrollToSection($event, 'services')"
           >Services</a
         >
       </li>
       <li>
-        <a href="#gallery" (click)="scrollToSection($event, 'gallery')"
+        <a 
+          href="#gallery" 
+          [class.active]="activeSection === 'gallery'"
+          (click)="scrollToSection($event, 'gallery')"
           >Gallery</a
         >
       </li>
       <li>
-        <a href="#contact" (click)="scrollToSection($event, 'contact')"
+        <a 
+          href="#contact" 
+          [class.active]="activeSection === 'contact'"
+          (click)="scrollToSection($event, 'contact')"
           >Contact</a
         >
       </li>
       <li>
-      <a
-        [routerLink]="['/about']"
-        routerLinkActive="active"
-        (click)="isMenuOpen = false"
-        >About</a
-      >
-    </li>
+        <a
+          [routerLink]="['/about']"
+          [class.active]="activeSection === 'about'"
+          (click)="isMenuOpen = false"
+          >About</a
+        >
+      </li>
     </ul>
   </div>
 </nav>
