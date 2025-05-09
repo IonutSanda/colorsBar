@@ -1,0 +1,24 @@
+<svg [attr.width]="width" [attr.height]="height" viewBox="0 0 240 100">
+    <!-- "COL" Text -->
+    <!-- Circle in the middle slightly bigger-->
+    <!-- <text x="5" y="45" font-family="Arial, sans-serif" font-weight="bold" font-size="40">COL</text> -->
+    <!-- <circle [attr.cx]="120" [attr.cy]="31" [attr.r]="25" [attr.fill]="dotColor" /> -->
+    <!-- <text x="150" y="45" font-family="Arial, sans-serif" font-weight="bold" font-size="40">RS</text> -->
+    
+    <!--  Circle in the middle same height as text -->
+    <text x="14" y="45" font-family="Arial, sans-serif" font-weight="bold" font-size="40">COL</text>
+    <circle [attr.cx]="120" [attr.cy]="30" [attr.r]="17" [attr.fill]="dotColor" />
+    <text x="140" y="45" font-family="Arial, sans-serif" font-weight="bold" font-size="40">RS</text>
+    
+    
+    <!-- Bottom Text -->
+    <text 
+      x="120" 
+      y="68" 
+      font-family="Helvetica, sans-serif" 
+      font-size="18" 
+      font-weight="550"
+      text-anchor="middle"
+      letter-spacing="1"
+      [attr.fill]="dotColor">{{ bottomText }}</text>
+  </svg>

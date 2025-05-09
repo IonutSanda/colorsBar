@@ -10,11 +10,12 @@ import { ScrollService } from '../../services/scroll.service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { NAVBAR_HEIGHT } from '../../application.constants';
 import { ThemeService } from '../../services/theme.service';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, LogoComponent],
   providers: [ScrollService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
@@ -29,10 +30,7 @@ export class NavbarComponent implements OnInit, OnChanges ,OnDestroy {
   public isMenuOpen = false;
   public activeSection = 'home';
 
-  public currentLogo = computed(() => {
-    console.log(localStorage.getItem('selectedItem'))
-    return this.themeService.currentLogo();
-  });
+  public currentLogo = computed(() =>  this.themeService.currentLogo());
   
   private scrollListener: any;
   private sections: string[] = ['home', 'services', 'gallery', 'contact'];
