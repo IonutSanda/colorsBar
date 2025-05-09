@@ -9,6 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ContactInfo } from '../../dtos';
+import { ADDRESS, MAIL, PHONE_NR } from '../../application.constants';
 
 @Component({
   selector: 'app-contact',
@@ -21,9 +22,9 @@ export class ContactComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
 
   public readonly contactInfo: ContactInfo = {
-    phoneNr: '0741123456',
-    email: 'info@colorsbar.ro',
-    address: '123 Cluj Napoca',
+    phoneNr: PHONE_NR,
+    email: MAIL,
+    address: ADDRESS,
   };
   public contactForm!: FormGroup;
   public submitted = false;

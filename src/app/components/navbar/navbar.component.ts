@@ -8,23 +8,28 @@ import { debounceTime, filter, fromEvent, Subscription, throttleTime } from 'rxj
 import { ScrollService } from '../../services/scroll.service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { NAVBAR_HEIGHT } from '../../application.constants';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink],
-  providers: [ScrollService],
+  providers: [ScrollService, ThemeService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   private readonly router = inject(Router);
   private readonly scrollService = inject(ScrollService);
+  private readonly themeService = inject(ThemeService);
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
   
   public isMenuOpen = false;
   public activeSection = 'home';
+
+  public currentLogo = '';
+  public currentTheme = this.themeService.currentThemeColor;
   
   private scrollListener: any;
   private sections: string[] = ['home', 'services', 'gallery', 'contact'];
@@ -71,6 +76,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.scrollListener.unsubscribe();
     }
   }
+  
+  get logoSrc(): string {
+    return this.themeService.currentLogo();
+  }
+
   
   public toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;

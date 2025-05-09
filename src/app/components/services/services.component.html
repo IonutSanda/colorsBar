@@ -14,7 +14,7 @@
         <div class="service-content">
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
-          <button class="service-btn" [ngClass]="getServiceColor(service.title)">Learn more</button>
+          <button class="service-btn" [ngClass]="getServiceClass(service.title)" (click)="handleLearnMore(service)">Learn more</button>
         </div>
       </div>
       }

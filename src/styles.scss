@@ -6,7 +6,25 @@
     --logistics: #bebec0;
     --juice-bar: #f69e09;
     --coffee-bar: #77411D;
+
+    --primary-color: #ff6b6b; 
+  
+  --current-theme-color: var(--primary-color);
 }
+
+$primary-color: var(--primary-color);
+
+.themed-text {
+    color: var(--current-theme-color);
+  }
+  
+  .themed-background {
+    background-color: var(--current-theme-color);
+  }
+  
+  .themed-border {
+    border-color: var(--current-theme-color);
+  }
 
 html{
     font-size: 1.025rem;

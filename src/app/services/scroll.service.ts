@@ -2,6 +2,7 @@ import { Inject, inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { NAVBAR_HEIGHT } from '../application.constants';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Service } from '../dtos';
 
 @Injectable()
 export class ScrollService {

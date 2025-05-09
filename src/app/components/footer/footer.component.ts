@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { FB_LINK, IG_LINK } from '../../application.constants';
+import { FB_LINK, IG_LINK, MAIL } from '../../application.constants';
 
 @Component({
   selector: 'app-footer',
@@ -13,6 +13,7 @@ export class FooterComponent {
   private readonly router = inject(Router);
   public readonly igLink = IG_LINK;
   public readonly fbLink = FB_LINK;
+  public readonly mailToColors = `mailTo:${MAIL}`
 
   public currentYear = new Date().getFullYear();
 
