@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -8,7 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
 })
-export class CarouselComponent {
+export class CarouselComponent implements OnInit, OnDestroy {
+
+  public currentIndex = 0;
+  public isAnimating = false;
+  public autoPlayInterval: any;
+
   public images: string[] = [
     '../../../../assets/img/carrousel/pic_1.jpg',
     '../../../../assets/img/carrousel/pic_2.jpg',
@@ -30,16 +35,42 @@ export class CarouselComponent {
     '../../../../assets/img/carrousel/pic_16.jpg',
   ];
 
-  public currentIndex = Math.floor(Math.random() * this.images.length - 1);
+  public ngOnInit():void{
+    this.currentIndex = Math.floor(Math.random() * this.images.length - 1);
+  }
+
+  public ngOnDestroy(): void {
+    if(this.autoPlayInterval){
+      clearInterval(this.autoPlayInterval);
+    }
+  }
 
   public next() {
+    if(this.isAnimating) {
+      return;
+    }
+
+    this.isAnimating = true;
     this.currentIndex = (this.currentIndex + 1) % this.images.length;
+
+    setTimeout(() => {
+      this.isAnimating = false
+    }, 300);
   }
 
   public prev() {
+    if(this.isAnimating){
+      return;
+    }
+
+    this.isAnimating = true
     this.currentIndex =
       (this.currentIndex - 1 + this.images.length) % this.images.length;
-  }
+
+      setTimeout(() => {
+        this.isAnimating = false
+      }, 300);
+    }
 
   public getClass(index: number): string {
     const diff =
@@ -53,4 +84,12 @@ export class CarouselComponent {
 
     return '';
   }
+
+  private startAutoPlay(){
+    this.autoPlayInterval = setInterval(() => {
+      this.next();
+    }, 5000)
+  }
+
+
 }
