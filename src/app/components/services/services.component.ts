@@ -20,13 +20,13 @@ export class ServicesComponent {
       title: 'Juice Bar',
       description:
         'Juice bar description Juice bar descriptionJuice bar descriptionJuice bar descriptionJuice bar description',
-      image: 'assets/img/carrousel/pic_17.jpg',
+      image: 'assets/img/carrousel/pic_18.jpg',
     },
     {
       title: 'Cocktail Bar',
       description:
         'Juice bar description Juice bar descriptionJuice bar descriptionJuice bar descriptionJuice bar description',
-      image: 'assets/img/carrousel/pic_17.jpg',
+      image: 'assets/img/carrousel/pic_15.jpg',
     },
     {
       title: 'Coffee Bar',
@@ -38,7 +38,7 @@ export class ServicesComponent {
       title: 'Ice delivery',
       description:
         'Juice bar description Juice bar descriptionJuice bar descriptionJuice bar descriptionJuice bar description',
-      image: 'assets/img/carrousel/pic_17.jpg',
+      image: 'assets/img/carrousel/pic_4.jpg',
     },
     {
       title: 'Logistics',
