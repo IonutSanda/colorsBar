@@ -17,33 +17,33 @@ export class ServicesComponent {
 
   public services: Service[] = [
     {
-      title: 'Juice Bar',
+      title: 'Colors Juice',
       description:
-        'Juice bar description Juice bar descriptionJuice bar descriptionJuice bar descriptionJuice bar description',
+        'Sucuri premium, mereu proaspete si gata de utilizare. De la mixul nostru stabil de Lemon Juice pana la sucuri 100% fresh de lamaie,portocale si rodie produsele noastre sunt perfecte pentru cocktail-uri, limonade sau servire directa.',
       image: 'assets/img/carrousel/pic_18.jpg',
     },
     {
       title: 'Cocktail Bar',
       description:
-        'Juice bar description Juice bar descriptionJuice bar descriptionJuice bar descriptionJuice bar description',
+        ' Spectacol si savoare in fiecare pahar. Cu un bar mobil complet echipat si mixologi profesionisti, aducem cocktail-uri spectaculoase si un vibe unic la orice eveniment.',
       image: 'assets/img/carrousel/pic_15.jpg',
     },
     {
       title: 'Coffee Bar',
       description:
-        'Juice bar description Juice bar descriptionJuice bar descriptionJuice bar descriptionJuice bar description',
+        'Cafea premium la standarde profesionale, oriunde ai nevoie. Cu echipamente de top si ingrediente de calitate, oferim preparate aromate si o experienta eleganta la evenimentele tale.',
       image: 'assets/img/carrousel/pic_17.jpg',
     },
     {
       title: 'Ice delivery',
       description:
-        'Juice bar description Juice bar descriptionJuice bar descriptionJuice bar descriptionJuice bar description',
+        'Gheata premium livrata direct la locatia ta. De la cuburi clasice si gheata pisata pana la gheata craft de dimensiuni speciale, oferim solutii complete pentru racire, inclusiv logistica cu congelatoare si thermobox-uri.',
       image: 'assets/img/carrousel/pic_4.jpg',
     },
     {
-      title: 'Logistics',
+      title: 'Bar Logistics',
       description:
-        'Juice bar description Juice bar descriptionJuice bar descriptionJuice bar descriptionJuice bar description',
+        'Solutii complete pentru logistica barului: baruri mobile, pahare de sticla, ustensile profesionale si echipamente de inchiriat. Tot ce ai nevoie pentru un bar functional si bine organizat.',
       image: 'assets/img/carrousel/pic_17.jpg',
     },
   ];
