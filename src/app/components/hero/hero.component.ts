@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ScrollService } from '../../services/scroll.service';
-import { Router } from '@angular/router';
 import { NAVBAR_HEIGHT } from '../../application.constants';
+import { ServiceTheme, ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-hero',
@@ -13,6 +13,7 @@ import { NAVBAR_HEIGHT } from '../../application.constants';
 export class HeroComponent implements OnInit {
 
   private readonly scrollService = inject(ScrollService);
+  private readonly themeService = inject(ThemeService);
 
   public title = 'Colors';
   public tagline =
@@ -33,5 +34,9 @@ export class HeroComponent implements OnInit {
     if(servicesSection){
       this.scrollService.scrollToSection(sectionId, NAVBAR_HEIGHT - 100);
     }
+  }
+
+  public setTheme(service: ServiceTheme):void{
+    this.themeService.setTheme(service);
   }
 }
