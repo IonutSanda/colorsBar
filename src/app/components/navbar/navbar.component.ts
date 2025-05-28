@@ -20,7 +20,7 @@ import { LogoComponent } from '../logo/logo.component';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent implements OnInit, OnChanges ,OnDestroy {
+export class NavbarComponent implements OnInit ,OnDestroy {
   private readonly router = inject(Router);
   private readonly scrollService = inject(ScrollService);
   private readonly themeService = inject(ThemeService);
@@ -52,10 +52,6 @@ export class NavbarComponent implements OnInit, OnChanges ,OnDestroy {
           this.activeSection = 'about';
         }
       });
-  }
-  
-  public ngOnChanges(changes: any):void{
-    console.log(changes)
   }
 
   public ngOnInit() {
@@ -104,7 +100,6 @@ export class NavbarComponent implements OnInit, OnChanges ,OnDestroy {
   }
   
   public navigateHome(event: Event): void {
-    console.log('service', this.currentLogo);
     event.preventDefault();
     this.activeSection = 'home';
     this.router.navigate(['']);

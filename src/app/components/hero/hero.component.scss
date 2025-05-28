@@ -27,7 +27,7 @@
 }
 
 .strip-juice {
-  background-color: var(--juice-bar);
+  background-color: var(--colors-juice);
 }
 
 .strip-ice {
@@ -219,11 +219,11 @@ p {
   background-color: rgba(227, 45, 18, 0.1);
 }
 
-.juice-bar {
-  border-left: 5px solid var(--juice-bar);
+.colors-juice {
+  border-left: 5px solid var(--colors-juice);
 }
-.juice-bar .service-icon {
-  color: var(--juice-bar);
+.colors-juice .service-icon {
+  color: var(--colors-juice);
   background-color: rgba(246, 158, 9, 0.1);
 }
 

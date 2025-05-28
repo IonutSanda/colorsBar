@@ -40,7 +40,7 @@ export class LogoComponent {
     this.dotColor = this.themeService.themeColors[currentTheme];
 
     switch(currentTheme) {
-      case 'juice-bar':
+      case 'colors-juice':
         this.bottomText = 'JUICE';
         break;
       case 'cocktail-bar':
@@ -52,7 +52,7 @@ export class LogoComponent {
       case 'ice-delivery':
         this.bottomText = 'ICE DELIVERY';
         break;
-      case 'logistics':
+      case 'bar-logistics':
         this.bottomText = 'LOGISTICS';
         break;
       default:

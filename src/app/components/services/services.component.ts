@@ -50,7 +50,7 @@ export class ServicesComponent {
 
   public getServiceClass(title: string): string{
     const lowerCaseTitle = title.toLocaleLowerCase().replace(/\s+/g, '-');
-  
+
     return `service-btn-${lowerCaseTitle}`;
   }
 

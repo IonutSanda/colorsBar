@@ -10,11 +10,11 @@ import {
 } from '@angular/core';
 
 export type ServiceTheme =
-  | 'juice-bar'
+  | 'colors-juice'
   | 'cocktail-bar'
   | 'coffee-bar'
   | 'ice-delivery'
-  | 'logistics'
+  | 'bar-logistics'
   | 'default';
 
 @Injectable({
@@ -34,20 +34,20 @@ export class ThemeService {
 
   //TODO: remove these and import from styles.scss
   themeColors: Record<ServiceTheme, string> = {
-    'juice-bar': '#f69e09',
+    'colors-juice': '#f69e09',
     'cocktail-bar': '#e32d12',
     'coffee-bar': '#77411D',
     'ice-delivery': '#3d7577',
-    logistics: '#bebec0',
+    'bar-logistics': '#bebec0',
     default: '#4a4a4a',
   };
 
   logoMapping: Record<ServiceTheme, string> = {
-    'juice-bar': 'assets/img/logo-bg-free/colors-juicy-logo.png',
+    'colors-juice': 'assets/img/logo-bg-free/colors-juicy-logo.png',
     'cocktail-bar': 'assets/img/logo-bg-free/colors-cocktail-logo.png',
     'coffee-bar': 'assets/img/logo-bg-free/colors-coffee-logo.png',
     'ice-delivery': 'assets/img/logo-bg-free/colors-ice-logo.png',
-    logistics: 'assets/img/logo-bg-free/colors-logistics-logo.png',
+    'bar-logistics': 'assets/img/logo-bg-free/colors-logistics-logo.png',
     default: 'assets/img/logo.png',
   };
 
