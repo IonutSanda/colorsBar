@@ -3,7 +3,8 @@
     --font-family: FS Albert, Helvetica, sans-serif;
     --cocktail-bar: #e32d12;
     --ice-delivery: #3d7577;
-    --logistics: #bebec0;
+    //--bar-logistics: #bebec0; // original color based on playbook
+    --bar-logistics: color-mix(in srgb, #bebec0, #000 10%);
     --colors-juice: #f69e09;
     --coffee-bar: #77411D;
 

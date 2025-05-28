@@ -35,7 +35,7 @@
 }
 
 .strip-logistics {
-  background-color: var(--logistics);
+  background-color: var(--bar-logistics);
 }
 
 .container {
@@ -235,10 +235,10 @@ p {
   background-color: rgba(61, 117, 119, 0.1);
 }
 
-.logistics {
-  border-left: 5px solid var(--logistics);
+.bar-logistics {
+  border-left: 5px solid var(--bar-logistics);
 }
-.logistics .service-icon {
-  color: var(--logistics);
+.bar-logistics .service-icon {
+  color: var(--bar-logistics);
   background-color: rgba(190, 190, 192, 0.1);
 }

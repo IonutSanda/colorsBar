@@ -58,5 +58,7 @@ export class ServicesComponent {
     const serviceTitle = service.title.toLocaleLowerCase().replace(/\s+/g, '-') as ServiceTheme;
 
     this.themeService.setTheme(serviceTitle);
+
+    
   }
 }

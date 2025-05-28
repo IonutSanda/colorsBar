@@ -142,13 +142,16 @@
   }
 }
 
-.service-btn-logistics {
-  --enhanced-logistics-color: color-mix(in srgb, var(--logistics), #000 20%);
-  color: var(--enhanced-logistics-color);
-  border-color: var(--enhanced-logistics-color);
-  
+.service-btn-bar-logistics {
+  // --enhanced-logistics-color: color-mix(in srgb, var(--bar-logistics), #000 10%);
+  // color: var(--enhanced-logistics-color);
+  // border-color: var(--enhanced-logistics-color);
+  color: var(--bar-logistics);
+  border-color: var(--bar-logistics);
+
   &:hover {
-    background-color: var(--enhanced-logistics-color);
+    // background-color: var(--enhanced-logistics-color);
+    background-color: var(--bar-logistics);
     color: white;
   }
 }
