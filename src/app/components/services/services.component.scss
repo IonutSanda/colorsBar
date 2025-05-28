@@ -1,3 +1,171 @@
+// @import "../../../styles/base";
+// @import "../../../styles.scss";
+
+// .services {
+//   padding: 100px 0;
+//   background-color: #f9f9f9;
+// }
+
+
+// .text-overflow {
+//   display: -webkit-box;
+//   -webkit-line-clamp: 5;
+//   -webkit-box-orient: vertical;
+//   overflow: hidden;
+//   line-height: 1.4; 
+// }
+
+// .container {
+//   max-width: 1200px;
+//   min-width: 80%;
+//   margin: 0 auto;
+//   padding: 0 20px;
+// }
+
+// .section-title {
+//   text-align: center;
+//   font-size: 2.5rem;
+//   margin-bottom: 60px;
+//   position: relative;
+// }
+
+// .section-title::after {
+//   content: "";
+//   position: absolute;
+//   width: 80px;
+//   height: 3px;
+//   background-color: $primary-color;
+//   bottom: -15px;
+//   left: 50%;
+//   transform: translateX(-50%);
+// }
+
+// .services-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//   gap: 30px;
+// }
+
+// .service-card {
+//   background-color: white;
+//   border-radius: 10px;
+//   overflow: hidden;
+//   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+//   transition: transform 0.3s ease, box-shadow 0.3s ease;
+// }
+
+// .service-card:hover {
+//   transform: translateY(-10px);
+//   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+// }
+
+// .service-image {
+//   height: 200px;
+//   overflow: hidden;
+// }
+
+// .service-image img {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   transition: transform 0.5s ease;
+// }
+
+// .service-card:hover .service-image img {
+//   transform: scale(1.1);
+// }
+
+// .service-content {
+//   padding: 25px;
+// }
+
+// .service-content jh3 {
+//   font-size: 1.5rem;
+//   margin-bottom: 15px;
+//   color: #333;
+// }
+
+// .service-content p {
+//   color: #666;
+//   margin-bottom: 20px;
+//   line-height: 1.6;
+// }
+
+// .service-btn {
+//   background-color: transparent;
+//   padding: 10px 20px;
+//   border-radius: 50px;
+//   font-weight: 500;
+//   cursor: pointer;
+//   transition: all 0.3s ease;
+//   border-width: 2px;
+//   border-style: solid;
+// }
+
+// .service-btn-colors-juice {
+//   color: var(--colors-bar);
+//   border-color: var(--colors-juice);
+  
+//   &:hover {
+//     background-color: var(--colors-juice);
+//     color: white;
+//   }
+// }
+
+// .service-btn-cocktail-bar {
+//   color: var(--cocktail-bar);
+//   border-color: var(--cocktail-bar);
+  
+//   &:hover {
+//     background-color: var(--cocktail-bar);
+//     color: white;
+//   }
+// }
+
+// .service-btn-coffee-bar {
+//   color: var(--coffee-bar);
+//   border-color: var(--coffee-bar);
+  
+//   &:hover {
+//     background-color: var(--coffee-bar);
+//     color: white;
+//   }
+// }
+
+// .service-btn-ice-delivery {
+//   color: var(--ice-delivery);
+//   border-color: var(--ice-delivery);
+  
+//   &:hover {
+//     background-color: var(--ice-delivery);
+//     color: white;
+//   }
+// }
+
+// .service-btn-bar-logistics {
+//   // --enhanced-logistics-color: color-mix(in srgb, var(--bar-logistics), #000 10%);
+//   // color: var(--enhanced-logistics-color);
+//   // border-color: var(--enhanced-logistics-color);
+//   color: var(--bar-logistics);
+//   border-color: var(--bar-logistics);
+
+//   &:hover {
+//     // background-color: var(--enhanced-logistics-color);
+//     background-color: var(--bar-logistics);
+//     color: white;
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .services {
+//     padding: 70px 0;
+//   }
+
+//   .section-title {
+//     font-size: 2rem;
+//   }
+// }
+
 @import "../../../styles/base";
 @import "../../../styles.scss";
 
@@ -6,13 +174,12 @@
   background-color: #f9f9f9;
 }
 
-
 .text-overflow {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4; 
+  line-height: 1.4;
 }
 
 .container {
@@ -44,6 +211,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
+  align-items: start; // Key change: prevents all cards from stretching
 }
 
 .service-card {
@@ -52,11 +220,28 @@
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; // For z-index to work
+  
+  // Enhanced expanded state
+  &.expanded {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    z-index: 2; // Brings expanded card above others
+    
+    // Optional: subtle border highlight when expanded
+    border: 2px solid rgba($primary-color, 0.3);
+  }
 }
 
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  
+  // Adjust hover for expanded cards
+  &.expanded {
+    transform: translateY(-12px); // Slightly more elevation when expanded + hover
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .service-image {
@@ -79,7 +264,7 @@
   padding: 25px;
 }
 
-.service-content jh3 {
+.service-content h3 { // Fixed typo: was "jh3"
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #333;
@@ -89,6 +274,7 @@
   color: #666;
   margin-bottom: 20px;
   line-height: 1.6;
+  transition: all 0.3s ease; // Smooth transition for text expansion
 }
 
 .service-btn {
@@ -100,12 +286,17 @@
   transition: all 0.3s ease;
   border-width: 2px;
   border-style: solid;
+  
+  // Subtle animation on text change
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 .service-btn-colors-juice {
   color: var(--colors-bar);
   border-color: var(--colors-juice);
-  
+ 
   &:hover {
     background-color: var(--colors-juice);
     color: white;
@@ -115,7 +306,7 @@
 .service-btn-cocktail-bar {
   color: var(--cocktail-bar);
   border-color: var(--cocktail-bar);
-  
+ 
   &:hover {
     background-color: var(--cocktail-bar);
     color: white;
@@ -125,7 +316,7 @@
 .service-btn-coffee-bar {
   color: var(--coffee-bar);
   border-color: var(--coffee-bar);
-  
+ 
   &:hover {
     background-color: var(--coffee-bar);
     color: white;
@@ -135,7 +326,7 @@
 .service-btn-ice-delivery {
   color: var(--ice-delivery);
   border-color: var(--ice-delivery);
-  
+ 
   &:hover {
     background-color: var(--ice-delivery);
     color: white;
@@ -143,14 +334,10 @@
 }
 
 .service-btn-bar-logistics {
-  // --enhanced-logistics-color: color-mix(in srgb, var(--bar-logistics), #000 10%);
-  // color: var(--enhanced-logistics-color);
-  // border-color: var(--enhanced-logistics-color);
   color: var(--bar-logistics);
   border-color: var(--bar-logistics);
-
+  
   &:hover {
-    // background-color: var(--enhanced-logistics-color);
     background-color: var(--bar-logistics);
     color: white;
   }
@@ -160,8 +347,30 @@
   .services {
     padding: 70px 0;
   }
-
+  
   .section-title {
     font-size: 2rem;
+  }
+  
+  // On mobile, cards stack vertically so alignment isn't an issue
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  // Reduce elevation effects on mobile for better performance
+  .service-card {
+    &.expanded {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    &:hover {
+      transform: translateY(-5px);
+      
+      &.expanded {
+        transform: translateY(-6px);
+      }
+    }
   }
 }
