@@ -211,7 +211,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  align-items: start; // Key change: prevents all cards from stretching
+  align-items: start; 
 }
 
 .service-card {
@@ -220,15 +220,13 @@
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative; // For z-index to work
+  position: relative; 
   
-  // Enhanced expanded state
   &.expanded {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    z-index: 2; // Brings expanded card above others
+    z-index: 2;
     
-    // Optional: subtle border highlight when expanded
     border: 2px solid rgba($primary-color, 0.3);
   }
 }
@@ -237,9 +235,8 @@
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   
-  // Adjust hover for expanded cards
   &.expanded {
-    transform: translateY(-12px); // Slightly more elevation when expanded + hover
+    transform: translateY(-12px); 
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
   }
 }
@@ -264,7 +261,7 @@
   padding: 25px;
 }
 
-.service-content h3 { // Fixed typo: was "jh3"
+.service-content h3 { 
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #333;
@@ -274,7 +271,7 @@
   color: #666;
   margin-bottom: 20px;
   line-height: 1.6;
-  transition: all 0.3s ease; // Smooth transition for text expansion
+  transition: all 0.3s ease;
 }
 
 .service-btn {
@@ -287,7 +284,6 @@
   border-width: 2px;
   border-style: solid;
   
-  // Subtle animation on text change
   &:active {
     transform: scale(0.98);
   }
@@ -352,13 +348,11 @@
     font-size: 2rem;
   }
   
-  // On mobile, cards stack vertically so alignment isn't an issue
   .services-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
   
-  // Reduce elevation effects on mobile for better performance
   .service-card {
     &.expanded {
       transform: translateY(-4px);
