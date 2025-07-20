@@ -67,16 +67,228 @@
     top: 50%;
     transform: translateY(-50%);
     border: none;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     font-size: 30px;
     cursor: pointer;
     padding: 10px;
     border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
   }
   .prev {
     left: 10px;
   }
   .next {
     right: 10px;
+  }
+}
+
+// iPad and tablet devices (769px - 1024px)
+@media (min-width: 769px) and (max-width: 1024px) {
+  .wrapper {
+    margin-top: 4rem;
+    padding-bottom: 70px;
+  }
+  
+  #carousel {
+    .carousel-wrapper {
+      height: 26rem;
+      padding: 0 15px;
+    }
+    
+    .carousel-item {
+      width: 30%;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+      
+      &.big {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        z-index: 5;
+      }
+      
+      &.medium {
+        transform: translateX(-50%) scale(0.75);
+        opacity: 0.7;
+        z-index: 3;
+      }
+      
+      &.mdleft {
+        left: 22%;
+      }
+      
+      &.mdright {
+        left: 78%;
+      }
+      
+      // Hide small images on iPad for cleaner look
+      &.small,
+      &.smallLeft,
+      &.smallRight {
+        display: none;
+      }
+    }
+    
+    .prev,
+    .next {
+      font-size: 26px;
+      padding: 10px;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .prev {
+      left: 15px;
+    }
+    
+    .next {
+      right: 15px;
+    }
+  }
+}
+
+// Mobile devices (max-width: 768px)
+@media (max-width: 768px) {
+  .wrapper {
+    margin-top: 3rem;
+    padding-bottom: 50px;
+  }
+  
+  #carousel {
+    .carousel-wrapper {
+      height: 22rem;
+      padding: 0 10px;
+    }
+    
+    .carousel-item {
+      width: 70%;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+      
+      &.big {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        z-index: 5;
+      }
+      
+      &.medium {
+        transform: translateX(-50%) scale(0.75);
+        opacity: 0.6;
+        z-index: 2;
+      }
+      
+      &.small {
+        transform: translateX(-50%) scale(0.5);
+        opacity: 0.3;
+        z-index: 1;
+      }
+      
+      &.mdleft {
+        left: 15%;
+      }
+      
+      &.mdright {
+        left: 85%;
+      }
+      
+      // Hide the small images on mobile to reduce crowding
+      &.smallLeft,
+      &.smallRight {
+        display: none;
+      }
+    }
+    
+    .prev,
+    .next {
+      font-size: 24px;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .prev {
+      left: 10px;
+    }
+    
+    .next {
+      right: 10px;
+    }
+  }
+}
+
+// Extra small screens - show only main image
+@media (max-width: 480px) {
+  #carousel {
+    .carousel-wrapper {
+      height: 18rem;
+      padding: 0 5px;
+    }
+    
+    .carousel-item {
+      width: 85%;
+      
+      &.big {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        z-index: 5;
+      }
+      
+      // Hide all side images on very small screens
+      &.medium,
+      &.small,
+      &.mdleft,
+      &.mdright,
+      &.smallLeft,
+      &.smallRight {
+        display: none;
+      }
+    }
+    
+    .prev,
+    .next {
+      font-size: 20px;
+      width: 35px;
+      height: 35px;
+      padding: 5px;
+    }
+    
+    .prev {
+      left: 5px;
+    }
+    
+    .next {
+      right: 5px;
+    }
   }
 }

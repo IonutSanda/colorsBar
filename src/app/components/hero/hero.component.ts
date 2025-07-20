@@ -38,5 +38,55 @@ export class HeroComponent implements OnInit {
 
   public setTheme(service: ServiceTheme):void{
     this.themeService.setTheme(service);
+    
+    // Scroll to the corresponding service card in services section
+    setTimeout(() => {
+      const serviceTitle = this.getServiceTitle(service);
+      const serviceCards = document.querySelectorAll('.service-card');
+      let targetCard: Element | null = null;
+      
+      serviceCards.forEach(card => {
+        const cardTitle = card.querySelector('h3')?.textContent?.trim();
+        if (cardTitle === serviceTitle) {
+          targetCard = card;
+        }
+      });
+      
+      if (targetCard) {
+        const cardElement = targetCard as HTMLElement;
+        const offsetTop = cardElement.offsetTop - 120; // Account for navbar height
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      } else {
+        // Fallback: scroll to services section
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+          const offsetTop = servicesSection.offsetTop - 100;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, 100);
+  }
+  
+  private getServiceTitle(service: ServiceTheme): string {
+    switch (service) {
+      case 'colors-juice':
+        return 'Colors Juice';
+      case 'cocktail-bar':
+        return 'Cocktail Bar';
+      case 'coffee-bar':
+        return 'Coffee Bar';
+      case 'ice-delivery':
+        return 'Ice delivery';
+      case 'bar-logistics':
+        return 'Bar Logistics';
+      default:
+        return '';
+    }
   }
 }

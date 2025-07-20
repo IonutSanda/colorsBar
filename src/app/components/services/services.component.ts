@@ -66,6 +66,23 @@ export class ServicesComponent {
 
     this.themeService.setTheme(serviceTitle);
 
-    service.isCollapsed = !service.isCollapsed
+    service.isCollapsed = !service.isCollapsed;
+  }
+
+  public handleServiceCardClick(service: Service): void {
+    if (window.innerWidth <= 768) {
+      // On mobile, scroll to services section with better positioning
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        const offsetTop = servicesSection.offsetTop - 100; // Account for navbar height
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // On desktop, use existing behavior
+      this.handleLearnMore(service);
+    }
   }
 }

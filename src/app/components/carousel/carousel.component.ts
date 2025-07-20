@@ -15,28 +15,31 @@ export class CarouselComponent implements OnInit, OnDestroy {
   public autoPlayInterval: any;
 
   public images: string[] = [
-    '../../../../assets/img/carrousel/pic_1.jpg',
-    '../../../../assets/img/carrousel/pic_2.jpg',
-    '../../../../assets/img/carrousel/pic_3.jpg',
-    '../../../../assets/img/carrousel/pic_4.jpg',
-    '../../../../assets/img/carrousel/pic_5.jpg',
-    '../../../../assets/img/carrousel/pic_6.jpg',
-    '../../../../assets/img/carrousel/pic_7.jpg',
-    '../../../../assets/img/carrousel/pic_8.jpg',
-    '../../../../assets/img/carrousel/pic_9.jpg',
-    '../../../../assets/img/carrousel/pic_10.jpg',
-    '../../../../assets/img/carrousel/pic_11.jpg',
-    '../../../../assets/img/carrousel/pic_12.jpg',
-    '../../../../assets/img/carrousel/pic_17.jpg',
-    '../../../../assets/img/carrousel/pic_18.jpg',
-    '../../../../assets/img/carrousel/pic_13.jpg',
-    '../../../../assets/img/carrousel/pic_14.jpg',
-    '../../../../assets/img/carrousel/pic_15.jpg',
-    '../../../../assets/img/carrousel/pic_16.jpg',
+    'assets/img/carrousel/pic_1.jpg',
+    'assets/img/carrousel/pic_2.jpg',
+    'assets/img/carrousel/pic_3.jpg',
+    'assets/img/carrousel/pic_4.jpg',
+    'assets/img/carrousel/pic_5.jpg',
+    'assets/img/carrousel/pic_6.jpg',
+    'assets/img/carrousel/pic_7.jpg',
+    'assets/img/carrousel/pic_8.jpg',
+    'assets/img/carrousel/pic_9.jpg',
+    'assets/img/carrousel/pic_10.jpg',
+    'assets/img/carrousel/pic_11.jpg',
+    'assets/img/carrousel/pic_12.jpg',
+    'assets/img/carrousel/pic_13.jpg',
+    'assets/img/carrousel/pic_14.jpg',
+    'assets/img/carrousel/pic_15.jpg',
+    'assets/img/carrousel/pic_16.jpg',
+    'assets/img/carrousel/pic_17.jpg',
+    'assets/img/carrousel/pic_18.jpg',
   ];
 
   public ngOnInit():void{
-    this.currentIndex = Math.floor(Math.random() * this.images.length - 1);
+    this.currentIndex = Math.floor(Math.random() * (this.images.length - 1));
+    if (this.currentIndex < 0) {
+      this.currentIndex = 0;
+    }
   }
 
   public ngOnDestroy(): void {
@@ -45,32 +48,37 @@ export class CarouselComponent implements OnInit, OnDestroy {
     }
   }
 
-  public next() {
-    if(this.isAnimating) {
+  public next(): void {
+    console.log('Next button clicked, current index:', this.currentIndex);
+    if (this.isAnimating) {
+      console.log('Animation in progress, skipping');
       return;
     }
 
     this.isAnimating = true;
     this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    console.log('New index:', this.currentIndex);
 
     setTimeout(() => {
-      this.isAnimating = false
+      this.isAnimating = false;
     }, 300);
   }
 
-  public prev() {
-    if(this.isAnimating){
+  public prev(): void {
+    console.log('Prev button clicked, current index:', this.currentIndex);
+    if (this.isAnimating) {
+      console.log('Animation in progress, skipping');
       return;
     }
 
-    this.isAnimating = true
-    this.currentIndex =
-      (this.currentIndex - 1 + this.images.length) % this.images.length;
+    this.isAnimating = true;
+    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+    console.log('New index:', this.currentIndex);
 
-      setTimeout(() => {
-        this.isAnimating = false
-      }, 300);
-    }
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 300);
+  }
 
   public getClass(index: number): string {
     const diff =

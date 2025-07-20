@@ -7,6 +7,7 @@
         class="service-card"
         [attr.data-aos]="'fade-up'"
         [attr.data-aos-delay]="$index * 100"
+        (click)="handleServiceCardClick(service)"
       >
         <div class="service-image">
           <img [src]="service.image" [alt]="service.title" />
@@ -14,7 +15,7 @@
         <div class="service-content">
           <h3>{{ service.title }}</h3>
           <p [class.text-overflow]="service.isCollapsed">{{ service.description }}</p>
-          <button class="service-btn" [ngClass]="getServiceClass(service.title)" (click)="handleLearnMore(service)">{{service.isCollapsed ? 'Show more' : 'Show less'}} </button>
+          <button class="service-btn desktop-only" [ngClass]="getServiceClass(service.title)" (click)="handleLearnMore(service); $event.stopPropagation()">{{service.isCollapsed ? 'Show more' : 'Show less'}} </button>
         </div>
       </div>
       }

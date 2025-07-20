@@ -39,3 +39,9 @@ body {
 	min-height: 100%;
 	-webkit-font-smoothing: antialiased;
 }
+
+@media (max-width: 768px) {
+  html, body {
+    font-size: 0.9rem; 
+  }
+}
