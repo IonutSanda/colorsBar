@@ -1,11 +1,4 @@
-3. Change ice delivery color to be more visible - TBD
-6. Proof-read the text (spaces after punctuation, capitalization, etc)
-
-====================================================================
-DONE
-====================================================================
-1. Juice bar logo and colors not updating
-2. Ice delivery logo and colors not updating
-4. Trim text for services
-5. Kids party service TBA (color, banner, logo, etc) - Experimental
-7. Click on icons on hero to change service
+1. COLORS logo is a bit off
+2. When scrolling on mobile the navbar gets cut off - done
+3. 750+ pixels doesn't quite fit
+4. Change services order (ice first, bar second, coffee, juice, logistics)
